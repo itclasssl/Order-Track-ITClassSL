@@ -1,0 +1,112 @@
+<!-- Step Modal -->
+<div class="modal fade" id="stepModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="stepModalTitle"><i class="bi bi-list-task me-2"></i>Add Production Step</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="stepForm" novalidate>
+                    <input type="hidden" id="stepId">
+                    <input type="hidden" id="stepItemId">
+                    <div class="row">
+                        <!-- This container will hold EITHER checkboxes (Add) OR read-only name (Edit) -->
+                        <div class="col-md-8 mb-3">
+                            <label class="form-label">Step Name(s) *</label>
+
+                            <!-- Read-only display for Edit mode -->
+                            <div id="editStepNameDisplayRow" style="display: none;">
+                                <input type="text" class="form-control" id="editStepNameDisplay" readonly>
+                            </div>
+
+                            <!-- Checkboxes for Add mode -->
+                            <div id="stepNameCheckboxes" class="border rounded p-2" style="max-height: 150px; overflow-y: auto;">
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Material" id="step-Material">
+                                    <label class="form-check-label" for="step-Material">Material</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="ArtWork" id="step-ArtWork">
+                                    <label class="form-check-label" for="step-ArtWork">ArtWork</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Plate" id="step-Plate">
+                                    <label class="form-check-label" for="step-Plate">Plate</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Cutter" id="step-Cutter">
+                                    <label class="form-check-label" for="step-Cutter">Cutter</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Print" id="step-Print">
+                                    <label class="form-check-label" for="step-Print">Print</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Laminate" id="step-Laminate">
+                                    <label class="form-check-label" for="step-Laminate">Laminate</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Foil" id="step-Foil">
+                                    <label class="form-check-label" for="step-Foil">Foil</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Diecut" id="step-Diecut">
+                                    <label class="form-check-label" for="step-Diecut">Diecut</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Prepare&QC" id="step-PrepareQC">
+                                    <label class="form-check-label" for="step-PrepareQC">Prepare &amp; QC</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input step-checkbox" type="checkbox" value="Pack&Del" id="step-PackDel">
+                                    <label class="form-check-label" for="step-PackDel">Pack &amp; Del</label>
+                                </div>
+                            </div>
+                            <div id="stepNameFeedback" class="invalid-feedback d-none">Please select at least one step</div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Order *</label>
+                            <input type="number" class="form-control" id="stepOrder" value="1" min="1" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" id="stepStatus">
+                                <option value="Pending">Pending</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                                <option value="On Hold">On Hold</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Assigned To</label>
+                            <input type="text" class="form-control" id="stepAssignedTo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="stepStartDate">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="stepEndDate">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" id="stepNotes" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="saveStep()">
+                    <i class="bi bi-check-circle me-1"></i>Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

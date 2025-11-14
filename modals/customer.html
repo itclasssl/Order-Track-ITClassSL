@@ -1,0 +1,54 @@
+<!-- Customer Modal -->
+<div class="modal fade" id="customerModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customerModalLabel">
+                    <i class="bi bi-person-plus me-2"></i>Add New Customer
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="customerForm" onsubmit="saveCustomer(event)" novalidate>
+                    <!-- Hidden field for customer ID (used when editing) -->
+                    <input type="hidden" id="customerIdField">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-control" id="Cust_Name" required>
+                        <div class="invalid-feedback">Required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="Cust_Email" required>
+                        <div class="invalid-feedback">Valid email required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Phone *</label>
+                        <input type="tel" class="form-control" id="Cust_No" required>
+                        <div class="invalid-feedback">Phone number required</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Company</label>
+                        <input type="text" class="form-control" id="Cust_Company">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Address *</label>
+                        <textarea class="form-control" id="Cust_Address" rows="2" required></textarea>
+                        <div class="invalid-feedback">Address required</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" form="customerForm" class="btn btn-success" id="customerFormSubmitBtn">
+                    <i class="bi bi-person-plus me-1"></i> Add Customer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
